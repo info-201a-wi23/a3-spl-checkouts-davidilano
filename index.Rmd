@@ -5,82 +5,76 @@ output: html_document
 
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+I have selected a data set from the Seattle Public Libraries containing items from the Diary of a Wimpy Kid series that were checked out between 2012 and 2022. The reason for selecting this data set is because the Diary of a Wimpy Kid book series was one of my personal favorite book series to read as a kid and I really enjoyed the live-action movies!
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
-
-These will likely be calculated using your DPLYR skills, answering questions such as:
-
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
+Between 2012-2022, the year with the highest number of checkouts was 2022 and the lowest number of checkouts was in 2015. The average number of checkouts per year is approximately 4865. The most common publisher for Diary of a Wimpy Kid books from 2012-2022 was ABRAMS. From 2012-2014, the number of e-book checkouts was only 350. However, the number of e-book checkouts between 2020 and 2022 was 21,706.
 
 ### The Dataset
 
-- Who collected/published the data?  
-- What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
-- What are possible limitations or problems with this data?   (at least 200 words)
+- Who collected/published the data? 
 
+The data was collected and published by The Seattle Public Library.
+
+- What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
+
+There are 12 parameters of the data: 
+
+- UsageClass: Indicates if the item is "Physical" or "Digital"
+- CheckoutType: Denotes the vendor tool used to check out the item.
+- MaterialType: Describes the type of item checked out (book, song movie, music, magazine etc.)
+- CheckoutYear: Year when the checkouts occurred
+- CheckoutMonth: Month when the checkouts occurred
+- Checkouts: Number of checkouts within the CheckoutMonth. Note this only counts the initial checkout	
+- Title: Title and subtitle of the item
+- ISBN: All ISBNs associated with the item record for the checkout
+- Creator: Author of the item
+- Subjects: Related subject(s) of the item 
+- Publisher: Publishing entity of the title
+- PublicationYear: Year of which the title was published, printed, or copyrighted
+
+- How was the data collected or generated?
+
+Physical checkout data was sourced from the Legrady Artwork Data Archives and the Horizon ILS. Digital checkout data was provided through usage data from vendors Overdrive, hoopla, Freegal, and RBDigital.
+
+- Why was the data collected?  
+
+The primary purpose of collecting this data is to offer open, accessible, and free book data to the public.
+
+- What, if any, ethical questions do you need to consider when working with this data?
+
+The data provided does not include any personal information of patrons who checked out items, so there should be no concern about compromising their privacy. However, it is possible that Seattle Public Libraries may have patrons' personal information on file. This raises the question of whether or not Seattle Public Libraries is transparently displaying all anonymous data, regardless of whether it is associated with patron information. It is also worth considering if there is a possibility that they may be hiding data from certain patrons based on their personal information. These concerns bring up the issue of whether or not such practices could contribute to the problem of BookScan's exclusion of patrons of color.
+
+- What are possible limitations or problems with this data?
+
+It is important to note that the data only covers checkout activity from April 2005 onwards. Therefore, we cannot draw any conclusions regarding checkout patterns prior to 2005, including the period when Seattle Public Library was established in the late 1800s.
+
+As we know, this data does not contain any personal information about library patrons, which is understandable due to privacy concerns. However, this means that we may not be able to draw any conclusions regarding demographic trends, such as those related to race, ethnicity, or gender, in relation to book checkouts. It is important to be cautious of the possibility that Seattle Public Libraries may intentionally conceal information pertaining to patrons of a particular demographic, given that they are a government entity and discrimination in data collection has been reported.
+
+Additionally, it is worth noting that the data only reflects item checkouts and not sales. Therefore, while we can infer sales trends to some extent, we cannot draw precise conclusions about book sales based on this data.
+
+As seen in the [FAQs](https://data.seattle.gov/api/views/tmmm-ytt6/files/d37b9edc-c56f-46e4-aaea-cb882230cf3a?download=true&filename=Checkouts%20by%20Title%20FAQs.pdf), the dataset only counts when someone first checks out a book, not when they renew it later. This means we might not be able to get a complete picture of how popular a book is, since we can't see how many times people renewed it. For example, a book that someone only checked out once and returned the next day would look just as popular as a book that someone checked out multiple times.
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+The first chart shows the checkout figures for Diary of a Wimpy Kid books and e-books from 2012 to 2022, aiming to compare the popularity between physical books and e-books. The chart illustrates that there were no e-book checkouts recorded during 2012. Additionally, there was a decline in the number of book checkouts after 2018, reaching a low point in 2020 and bouncing a little off the bottom. Meanwhile, the number of e-book checkouts showed a great increase, surpassing the number of book checkouts between 2013 and 2014 and had an immense increase in 2020.
 
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
 ```
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+The second chart presents data on the number of Diary of a Wimpy Kid books published by a distinct publisher from 2012 to 2022. The purpose of this visual representation is to identify the publishers that were most frequently used. The chart highlights that ABRAMS was the most commonly used publisher by a large margin, with Recorded Books being the second most popular publisher and 20th Century Fox Home Entertainment following closely behind, but its checkouts decline in 2018.
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, code = readLines("chart2_example.R")}
 ```
 
 ### Your Choice
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
+The last chart of my choice visualizes the number of checkouts of the second Diary of a Wimpy Kid book, "Diary of a Wimpy Kid: Rodrick Rules" between 2012 to 2022. This was one of my favorite books to read growing up as well as being one of my favorite movies to watch! The chart shows that 2021 had the highest number of checkouts of this book, followed by 2022, and then 2012. The lowest number of checkouts of this book occurred in 2016.
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, code = readLines("chart3_example.R")}
 ```
 
 
