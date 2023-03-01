@@ -1,6 +1,6 @@
 # Assignment 3: SPL Library Checkouts
 
-Link to your final GitHub pages site here: <file:///Users/davidilano/Desktop/INFO_201/a3-spl-checkouts-davidilano/index.html> (change the link to for your GitHub pages site)
+Link to your final GitHub pages site here: <https://rpubs.com/dilano/1009560> (change the link to for your GitHub pages site)
 
 In this assignment, you will use your data analysis and visualization skills to analyze patterns and trends in [library circulation data published by the Seattle Public Library](https://data.seattle.gov/Community/Checkouts-by-Title/tmmm-ytt6).
 
